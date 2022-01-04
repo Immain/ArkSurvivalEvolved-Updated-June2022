@@ -59,7 +59,6 @@ ansible --version
 - The Island
   - 27015/udp Query
   - 7777/udp Game client port 
-  - 32330/udp Rcon
 
 # Map-Names:
-- The Island: TheIsland
+> The Island: TheIsland
