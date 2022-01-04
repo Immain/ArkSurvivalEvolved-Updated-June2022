@@ -29,7 +29,7 @@ sudo dnf install python3
 ```
 python3 -c 'import crypt,getpass;pw=getpass.getpass();print(crypt.crypt(pw) if (pw==getpass.getpass("Confirm: ")) else exit())'
 ```
-- It will immediately ask you to type in a password and then confirm it (Like The Example Below)
+**It will immediately ask you to type in a password and then confirm it (Like The Example Below)**
 ```
 Password: 
 Confirm: 
