@@ -9,7 +9,7 @@
   vars:
     users:
     - username: arkserver
-      password: $6$2R28DNJOYt1LpqA.$PfyOlROw2dp8LXXV8KWR0Gg.kX1e4cLcjbJvKUxqGJo5XxZuX8ukxe3qxuzdJTsSkDo9ZjRJfKRtxkYmiJvGC.
+      password: 
   tasks:
 
   - name: Check OS Release is AlmaLinux
