@@ -31,7 +31,7 @@ sudo dnf install git -y
 ```
 **Make sure you are within the github directory, then run:**
 ```
-git clone https://github.com/Immain/ArkSurvivalEvolved-Cluster-Jan2022.git
+git clone https://github.com/Immain/ArkSurvivalEvolved-Vanilla-Jan2022.git
 ```
 # Generating a Hashed Password For This Script
 ```
