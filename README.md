@@ -57,8 +57,8 @@ ansible --version
 ```
 # Ports:
 > The Island
-  > 27015/udp Query
-  > 7777/udp Game client port 
+  - 27015/udp Query
+  - 7777/udp Game client port 
 
 # Map-Names:
 > The Island: TheIsland
