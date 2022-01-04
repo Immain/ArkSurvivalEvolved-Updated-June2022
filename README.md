@@ -58,14 +58,14 @@ ansible --version
 # Updating Ark Survival Evolved
 **To Update Ark Survival, Use the script under "Tools" labeled update.yaml**
 ```
-cd /home/arkserver/ArkSurvivalEvolved-Vanilla-Jan2022/
+cd /home/arkserver/ArkSurvivalEvolved-Vanilla-Jan2022/tools
 ```
 ```
 ansible-playbook update.yaml
 ```
 **You can also copy the update script into your /home/arkserver/linux/ark/ folder and execute the playbook**
 ```
-sudo cp /home/arkserver/ArkSurvivalEvolved-Vanilla-Jan2022/update.yaml /home/arkserver/linux/ark/
+sudo cp /home/arkserver/ArkSurvivalEvolved-Vanilla-Jan2022/tools/update.yaml /home/arkserver/linux/ark/
 ```
 **Then execute the script with**
 ```
