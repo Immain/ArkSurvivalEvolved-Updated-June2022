@@ -1,0 +1,199 @@
+##############################################
+#    Ark Survival Evolved - Vanilla Script   #
+##############################################
+---
+- name: Ark Survival Evolved Launch Script
+  hosts: localhost
+  become: true
+  gather_facts: yes
+  vars:
+    users:
+    - username: arkserver
+      password: $6$2R28DNJOYt1LpqA.$PfyOlROw2dp8LXXV8KWR0Gg.kX1e4cLcjbJvKUxqGJo5XxZuX8ukxe3qxuzdJTsSkDo9ZjRJfKRtxkYmiJvGC.
+  tasks:
+
+  - name: Check OS Release is AlmaLinux
+    assert:
+      that:
+      - ansible_facts['os_family'] == "RedHat"
+      - ansible_facts['distribution'] == "AlmaLinux"
+      fail_msg: Host {{ ansible_hostname }} does not meet minimal reps
+
+  - name: Get IPv4 address
+    debug:
+      msg: "System {{ inventory_hostname }} has address of  {{ ansible_default_ipv4.address }}"
+    when: ansible_default_ipv4.address is defined
+
+  - name: Get IPv4 Gateway
+    debug:
+      msg: "system {{ inventory_hostname }} has gateway address of {{ ansible_default_ipv4.gateway }}"
+    when: ansible_default_ipv4.gateway is defined
+
+  - name: Register System Public IP Address
+    uri:
+      url: https://api.ipify.org?format=json
+      method: get
+    changed_when: false
+    register: public_ip
+    until: public_ip.status == 200
+    retries: 5
+    delay: 10
+
+  - name: print System Public IP Address
+    debug:
+      msg: "{{ public_ip.json.ip }}"
+
+  - name: Update AlmaLinux with Latest Packages
+    dnf:
+      name: '*'
+      state: latest
+
+  - name: Create User Arkserver with Home Directory
+    user: 
+      name: "{{ item.username }}"
+      shell: /bin/bash
+      createhome: yes
+      group: wheel
+      generate_ssh_key: yes
+      ssh_key_bits: 2048
+      password: "{{ item.password }}"
+      update_password: always
+    with_items: "{{ users }}"
+
+  - name: Install Firewalld
+    dnf:
+      name: firewalld
+      state: latest
+    notify: 
+      - start firewalld
+
+  - name: Installing Screen
+    dnf:
+      name: screen
+      state: present
+
+  - name: Starting Firewalld
+    service: 
+      name: firewalld
+      state: started
+      enabled: yes
+
+##############################################
+#    Ark Survival Evolved - Firewall Ports   #
+##############################################
+
+  - name: Opening Firewall Ports for The Island
+    firewalld:
+      zone: public
+      port: 27015/udp
+      port: 7777/udp
+      permanent: true
+      state: enabled
+
+##############################################
+#    Ark Survival Evolved - Dependencies     #
+##############################################
+
+  - name: Installing Required Libraries for Ark Survival Evolved
+    dnf:
+      name:
+          - glibc.i686
+          - libstdc++.i686
+          - ncurses-libs.i686
+      state: present
+
+  - name: Update System Settings
+    shell: |
+      echo 'fs.file-max=100000' >> /etc/sysctl.conf
+
+  - name: Adjust default sysctl values
+    command:
+      cmd: sysctl -p /etc/sysctl.conf
+
+  - name: Update Security Limits File
+    shell: |
+      echo '* soft nofile 1000000\n* hard nofile 1000000' >> /etc/security/limits.conf
+ 
+  - name: Making Linux Directory for Ark Survival Evolved
+    file:
+      path: /home/arkserver/linux
+      state: directory
+
+##############################################
+#      Ark Survival Evolved - Steam CMD      #
+##############################################
+
+  - name: Downloading SteamCMD Installation Files
+    get_url:
+      url: https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+      dest: /home/arkserver/linux
+
+  - name: Renaming SteamCMD Installation File
+    copy:
+      src: home/arkserver/linux/steamcmd_linux.tar.gz
+      dest: home/arkserver/linux/steamcmd.tar.gz
+  
+  - name: Removing Original SteamCMD Installation File
+    file:
+      state: absent
+      path: /home/arkserver/linux/steamcmd_linux.tar.gz
+
+  - name: Unarchiving Steam Installation Files
+    unarchive:
+      src: /home/arkserver/linux/steamcmd.tar.gz
+      dest: /home/arkserver/linux
+      remote_src: yes
+    retries: 2
+    delay: 10
+    register: tar
+    until: tar is not failed
+  
+  - name: Validating Ark Suvival Evolved with SteamCMD (Please Be Patient, This May Take Awhile)
+    command: sh /home/arkserver/linux/steamcmd.sh +login anonymous +force_install_dir ./ark +app_update 376030 validate +quit
+    retries: 2
+    delay: 10
+    register: result
+    until: result is not failed
+
+##############################################
+#      Ark Survival Evolved - Scripts        #
+##############################################
+
+  - name: Creating Start Script for The Island
+    template:
+      src: scripts/theisland.sh.j2
+      dest: /home/arkserver/linux/ark/theisland.sh
+
+##############################################
+#     Ark Survival Evolved - Permission      #
+##############################################
+
+  - name: Updating Script Permissions for The Island
+    command: chmod +x /home/arkserver/linux/ark/theisland.sh
+
+##############################################
+#      Ark Survival Evolved - Game INI       #
+##############################################
+
+  - name: Creating Stock Game.ini for Ark Survival Evolved
+    become: true
+    template: 
+      src:  gameini/Game.ini.j2
+      dest: /home/arkserver/linux/ark/ShooterGame/Saved/Config/LinuxServer/Game.ini
+      remote_src: yes
+
+  - name: Creating Stock GameUserSettings.ini for Ark Survival Evolved
+    become: true
+    template:
+      src: gameini/GameUserSettings.ini.j2
+      dest: /home/arkserver/linux/ark/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
+      remote_src: yes
+
+##############################################
+#      Ark Survival Evolved - Game INI       #
+##############################################
+
+  - name: Starting Up Ark Survival Evolved Server (Please Allow Up To 5-min Before Joining)
+    become: true
+    become_user: arkserver
+    command: chdir=/home/arkserver/linux/ark sh islandarkserver.sh
