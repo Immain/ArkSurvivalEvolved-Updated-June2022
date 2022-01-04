@@ -18,7 +18,21 @@ Ark Survival Evolved Cluster Automation Script
 # Machine Suggestions
 - VMWare with AlmaLinux 8.5 or higher Installed (MacOS)
 - Physical Machine with AlmaLinux 8.5 or higher (Recommended) 
-
+- 
+# On your Linux Desktop:
+```
+sudo mkdir /home/arkserver/github
+```
+```
+cd /home/arkserver/ArkSurvivalEvolved-Vanilla-Jan2022
+```
+```
+sudo yum install git -y
+```
+**Make sure you are within the github directory, then run:**
+```
+git clone https://github.com/Immain/ArkSurvivalEvolved-Cluster-Jan2022.git
+```
 # Generating a Hashed Password For This Script
 ```
 sudo dnf -y install epel-release
