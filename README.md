@@ -16,7 +16,7 @@ Ark Survival Evolved Cluster Automation Script
 - Does NOT require GPU usage
 
 # Machine Suggestions
-- VMWare with AlmaLinux 8.5 or higher Installed (MacOS)
+- VMWare, Hyper-V, VirtualBox, VMWare Workstation with AlmaLinux 8.5 or higher Installed
 - Physical Machine with AlmaLinux 8.5 or higher (Recommended) 
 
 # On your Linux Desktop:
