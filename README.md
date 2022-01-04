@@ -1,5 +1,4 @@
 # Ark-Survival-Evolved-Vanilla-Jan2022
-Ark Survival Evolved - Vanilla Linux Script for AlmaLinux
 <img src=https://almalinux.org/static/images/logo.svg>
 <img src=https://www.nintendo.com//content/dam/noa/en_US/games/switch/a/ark-survival-evolved-switch/ark-survival-evolved-switch-hero.jpg>
 
