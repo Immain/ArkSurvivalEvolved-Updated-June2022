@@ -19,7 +19,7 @@ Ark Survival Evolved Cluster Automation Script
 - VMWare with AlmaLinux 8.5 or higher Installed (MacOS)
 - Physical Machine with AlmaLinux 8.5 or higher (Recommended) 
 
-# Generating a Hashed Password for This Script
+# Generating a Hashed Password For This Script
 
 
 # Installing Ansible on AlmaLinux 8.5 or higher:
