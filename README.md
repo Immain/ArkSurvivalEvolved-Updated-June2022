@@ -55,6 +55,22 @@ sudo dnf install ansible -y
 ```
 ansible --version
 ```
+# Updating Ark Survival Evolved
+**To Update Ark Survival, Use the script under "Tools" labeled update.yaml**
+```
+cd /home/arkserver/ArkSurvivalEvolved-Vanilla-Jan2022/
+```
+```
+ansible-playbook update.yaml
+```
+**You can also copy the update script into your /home/arkserver/linux/ark/ folder and execute the playbook**
+```
+sudo cp /home/arkserver/ArkSurvivalEvolved-Vanilla-Jan2022/update.yaml /home/arkserver/linux/ark/
+```
+**Then execute the script with**
+```
+ansible-playbook update.yaml
+```
 # Ports:
 > The Island
   - 27015/udp Query
