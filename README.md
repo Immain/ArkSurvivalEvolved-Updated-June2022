@@ -27,7 +27,7 @@ sudo mkdir /home/arkserver/github
 cd /home/arkserver/ArkSurvivalEvolved-Vanilla-Jan2022
 ```
 ```
-sudo yum install git -y
+sudo dnf install git -y
 ```
 **Make sure you are within the github directory, then run:**
 ```
