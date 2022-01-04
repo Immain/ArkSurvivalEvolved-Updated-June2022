@@ -19,6 +19,9 @@ Ark Survival Evolved Cluster Automation Script
 - VMWare with AlmaLinux 8.5 or higher Installed (MacOS)
 - Physical Machine with AlmaLinux 8.5 or higher (Recommended) 
 
+# Generating a Hashed Password for This Script
+
+
 # Installing Ansible on AlmaLinux 8.5 or higher:
 - sudo dnf update -y
 - sudo dnf makecache
@@ -26,3 +29,12 @@ Ark Survival Evolved Cluster Automation Script
 - sudo dnf makecache
 - sudo dnf install ansible -y
 - ansible --version
+
+# Ports:
+- The Island
+  - 27015/udp Query
+  - 7777/udp Game client port 
+  - 32330/udp Rcon
+
+# Map-Names:
+- The Island: TheIsland
