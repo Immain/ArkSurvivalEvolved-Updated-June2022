@@ -18,7 +18,7 @@ Ark Survival Evolved Cluster Automation Script
 # Machine Suggestions
 - VMWare with AlmaLinux 8.5 or higher Installed (MacOS)
 - Physical Machine with AlmaLinux 8.5 or higher (Recommended) 
-- 
+
 # On your Linux Desktop:
 ```
 sudo mkdir /home/arkserver/github
