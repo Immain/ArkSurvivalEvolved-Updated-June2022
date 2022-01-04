@@ -1,0 +1,13 @@
+##############################################
+#       Ark Survival Evolved - Start         #
+##############################################
+---
+- name: Ark Survival Evolved Launch Script
+  hosts: localhost
+  become: true
+  become_user: arkserver
+  gather_facts: yes
+  tasks:
+
+  - name: Starting The Island (Please Be Patient)
+    script: /home/arkserver/linux/ark/arkisland.sh
