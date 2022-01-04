@@ -20,7 +20,15 @@ Ark Survival Evolved Cluster Automation Script
 - Physical Machine with AlmaLinux 8.5 or higher (Recommended) 
 
 # Generating a Hashed Password For This Script
-
+- sudo dnf -y install epel-release
+- sudo dnf install python3
+- python3 -c 'import crypt,getpass;pw=getpass.getpass();print(crypt.crypt(pw) if (pw==getpass.getpass("Confirm: ")) else exit())'
+- It will immediately ask you to type in a password and then confirm it (Like The Example Below)
+```
+Password: 
+Confirm: 
+$6$/1OFlW9yH1KHHiOm$pn2SfNgbF/rbblahjseab/p1Xb6Z29UZik.BUilZ.TLnp9yvl2HViB3fs8XdVteboeioss7o2A4g1IYxw.TFJ/
+```
 
 # Installing Ansible on AlmaLinux 8.5 or higher:
 - sudo dnf update -y
