@@ -1,0 +1,26 @@
+##############################################
+#       Ark Survival Evolved - Updater       #
+##############################################
+---
+- name: Ark Survival Evolved Launch Script
+  hosts: localhost
+  become: true
+  become_user: arkserver
+  gather_facts: yes
+  tasks:
+
+  - name: Stopping All Current Servers
+    shell: |
+      screen -S theisland -X quit
+      screen -S lostisland -X quit
+    delay: 5
+
+  - name: Updating & Validating Ark Suvival Evolved with SteamCMD (Please Be Patient, This May Take Awhile)
+    command: sh /home/arkserver/linux/steamcmd.sh +login anonymous +force_install_dir ./ark +app_update 376030 validate +quit
+    retries: 2
+    delay: 10
+    register: result
+    until: result is not failed
+
+  - name: Restarting The Island (Please Be Patient)
+    script: /home/arkserver/linux/ark/arkisland.sh
