@@ -56,9 +56,9 @@ sudo dnf install ansible -y
 ansible --version
 ```
 # Ports:
-- The Island
-  - 27015/udp Query
-  - 7777/udp Game client port 
+> The Island
+  > 27015/udp Query
+  > 7777/udp Game client port 
 
 # Map-Names:
 > The Island: TheIsland
