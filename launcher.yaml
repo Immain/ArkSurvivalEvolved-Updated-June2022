@@ -162,6 +162,31 @@
     command: chmod +x /home/arkserver/linux/ark/theisland.sh
 
 ##############################################
+#      Ark Survival Evolved - Game Delay     #
+##############################################
+
+  - name: Starting The Island To Generate Files(Please Be Patient)
+    script: /home/arkserver/linux/ark/theisland.sh
+
+##############################################
+#      Ark Survival Evolved - Wait For       #
+##############################################
+
+  - name: Sleep for 500 seconds before continuing
+    wait_for:
+      timeout: 500
+    delegate_to: localhost
+
+##############################################
+#      Ark Survival Evolved - Game Stop      #
+##############################################
+
+  - name: Stopping All Current Servers 
+    shell: |
+      screen -S theisland -X quit
+    delay: 25
+
+##############################################
 #      Ark Survival Evolved - Game INI       #
 ##############################################
 
@@ -177,10 +202,9 @@
     template:
       src: gameini/GameUserSettings.ini.j2
       dest: /home/arkserver/linux/ark/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
-      remote_src: yes
 
 ##############################################
-#      Ark Survival Evolved - Game Start     #
+#   Ark Survival Evolved - Official Start    #
 ##############################################
 
   - name: Starting The Island (Please Be Patient)
