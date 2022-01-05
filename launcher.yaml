@@ -41,7 +41,7 @@
 
   - name: print System Public IP Address
     debug:
-      msg: "{{ public_ip.json.ip }}"
+      msg: "Systems public IP Address is {{ public_ip.json.ip }} , you will need this for steam"
 
   - name: Update AlmaLinux with Latest Packages
     dnf:
