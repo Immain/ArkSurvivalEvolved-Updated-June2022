@@ -180,8 +180,8 @@
       remote_src: yes
 
 ##############################################
-#      Ark Survival Evolved - Game INI       #
+#      Ark Survival Evolved - Game Start     #
 ##############################################
 
-  - name: Starting The Island (Please Be Patient)
+  - name: Restarting The Island (Please Be Patient)
     script: /home/arkserver/linux/ark/theisland.sh
