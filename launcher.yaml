@@ -183,5 +183,5 @@
 #      Ark Survival Evolved - Game Start     #
 ##############################################
 
-  - name: Restarting The Island (Please Be Patient)
+  - name: Starting The Island (Please Be Patient)
     script: /home/arkserver/linux/ark/theisland.sh
