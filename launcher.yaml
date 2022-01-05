@@ -9,7 +9,7 @@
   vars:
     users:
     - username: arkserver
-      password: 
+      password: $6$2R28DNJOYt1LpqA.$PfyOlROw2dp8LXXV8KWR0Gg.kX1e4cLcjbJvKUxqGJo5XxZuX8ukxe3qxuzdJTsSkDo9ZjRJfKRtxkYmiJvGC.
   tasks:
 
   - name: Check OS Release is AlmaLinux
@@ -128,19 +128,9 @@
       url: https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
       dest: /home/arkserver/linux
 
-  - name: Renaming SteamCMD Installation File
-    copy:
-      src: home/arkserver/linux/steamcmd_linux.tar.gz
-      dest: home/arkserver/linux/steamcmd.tar.gz
-  
-  - name: Removing Original SteamCMD Installation File
-    file:
-      state: absent
-      path: /home/arkserver/linux/steamcmd_linux.tar.gz
-
   - name: Unarchiving Steam Installation Files
     unarchive:
-      src: /home/arkserver/linux/steamcmd.tar.gz
+      src: /home/arkserver/linux/steamcmd_linux.tar.gz
       dest: /home/arkserver/linux
       remote_src: yes
     retries: 2
@@ -193,7 +183,5 @@
 #      Ark Survival Evolved - Game INI       #
 ##############################################
 
-  - name: Starting Up Ark Survival Evolved Server (Please Allow Up To 5-min Before Joining)
-    become: true
-    become_user: arkserver
-    command: chdir=/home/arkserver/linux/ark sh islandarkserver.sh
+  - name: Restarting The Island (Please Be Patient)
+    script: /home/arkserver/linux/ark/theisland.sh
