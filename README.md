@@ -92,3 +92,7 @@ ansible-playbook update.yaml
 
 # Map-Names:
 > The Island: TheIsland
+
+# Update Log
+- 01/05/22: **Changed order of tasks due to INI not moving over correctly**
+- 01/04/22: **Added automation tools including update, start, and stop**
