@@ -1,0 +1,17 @@
+# Ark Backup Script #
+---
+- name: Ark Survival Evolved Backup Script
+  hosts: localhost
+  become: true
+  become_user: root
+  gather_facts: yes
+  vars:
+    date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+  tasks:
+# Backups #
+  - name: Backing up Server Files
+    become: true
+    copy:
+      src: /home/arkserver/linux/ark/ShooterGame/Saved/SavedArks/
+      dest: /path/to/backup/drive/ark-backups/arkbackup-{{ date }}
+      remote_src: yes
