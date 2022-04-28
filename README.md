@@ -1,10 +1,12 @@
-# Ark-Survival-Evolved-Vanilla-Jan2022
+# Ark-Survival-Evolved-Vanilla-May2022
 <img src=https://almalinux.org/static/images/logo.svg>
 <img src=https://playpc.io/wp-content/uploads/2020/08/ark-sruvival-evolved-wallpaper.jpg>
 
 # Automation Script for Ark Survival Evolved - Vanilla Linux Script for AlmaLinux
 
-Ark Survival Evolved Cluster Automation Script
+Ark Survival Evolved Cluster Automation Script - Updated
+
+This project is ongoing and will continue to be updated over time.
 
 # Requirements: 
 - AlmaLinux 8.5 or higher ( This can be installed on a local machine or using a VMware Service of your choice)
