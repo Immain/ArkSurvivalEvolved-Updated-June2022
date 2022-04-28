@@ -17,7 +17,7 @@ This project is ongoing and will continue to be updated over time.
 - Processor: Intel Core i5-8400 or Higher / AMD Ryzen 5 1600 or Higher
 - Does NOT require GPU usage
 
-# Machine Suggestions
+# Machine Suggestions:
 - VMWare, Hyper-V, VirtualBox, VMWare Workstation with AlmaLinux 8.5 or higher Installed
 - Physical Machine with AlmaLinux 8.5 or higher (Recommended) 
 
@@ -35,9 +35,9 @@ sudo dnf install git -y
 ```
 git clone https://github.com/Immain/ArkSurvivalEvolved-Vanilla-May2022.git
 ```
-# Discord Webhooks
+# Discord Webhooks:
 
-# Generating a Hashed Password For This Script
+# Generating a Hashed Password For This Script:
 ```
 sudo dnf -y install epel-release
 ```
@@ -73,7 +73,7 @@ sudo dnf install ansible -y
 ```
 ansible --version
 ```
-# Updating Ark Survival Evolved
+# Updating Ark Survival Evolved:
 **To Update Ark Survival, Use the script under "Tools" labeled update.yaml**
 ```
 cd /home/arkserver/ArkSurvivalEvolved-Vanilla-May2022/tools
@@ -97,7 +97,7 @@ ansible-playbook update.yaml
 # Map-Names:
 > The Island: TheIsland
 
-# Update Log
+# Update Log:
 - 04/28/22: **Added Discord Notifications & Fixed some errors with the script**
 - 01/05/22: **Changed order of tasks due to INI not moving over correctly**
 - 01/04/22: **Added automation tools including update, start, and stop**
