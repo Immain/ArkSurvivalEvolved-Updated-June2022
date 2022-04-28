@@ -26,14 +26,14 @@ This project is ongoing and will continue to be updated over time.
 sudo mkdir /home/arkserver/github
 ```
 ```
-cd /home/arkserver/ArkSurvivalEvolved-Vanilla-Jan2022
+cd /home/arkserver/ArkSurvivalEvolved-Vanilla-May2022
 ```
 ```
 sudo dnf install git -y
 ```
 **Make sure you are within the github directory, then run:**
 ```
-git clone https://github.com/Immain/ArkSurvivalEvolved-Vanilla-Jan2022.git
+git clone https://github.com/Immain/ArkSurvivalEvolved-Vanilla-May2022.git
 ```
 # Generating a Hashed Password For This Script
 ```
@@ -74,14 +74,14 @@ ansible --version
 # Updating Ark Survival Evolved
 **To Update Ark Survival, Use the script under "Tools" labeled update.yaml**
 ```
-cd /home/arkserver/ArkSurvivalEvolved-Vanilla-Jan2022/tools
+cd /home/arkserver/ArkSurvivalEvolved-Vanilla-May2022/tools
 ```
 ```
 ansible-playbook update.yaml
 ```
 **You can also copy the update script into your /home/arkserver/linux/ark/ folder and execute the playbook**
 ```
-sudo cp /home/arkserver/ArkSurvivalEvolved-Vanilla-Jan2022/tools/update.yaml /home/arkserver/linux/ark/
+sudo cp /home/arkserver/ArkSurvivalEvolved-Vanilla-May2022/tools/update.yaml /home/arkserver/linux/ark/
 ```
 **Then execute the script with**
 ```
@@ -96,6 +96,7 @@ ansible-playbook update.yaml
 > The Island: TheIsland
 
 # Update Log
+- 04/28/22: **Added Discord Notifications & Fixed some errors with the script**
 - 01/05/22: **Changed order of tasks due to INI not moving over correctly**
 - 01/04/22: **Added automation tools including update, start, and stop**
 - 01/03/22: **Create Repository**
