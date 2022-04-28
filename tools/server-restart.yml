@@ -1,0 +1,49 @@
+##############################################
+#       Ark Survival Evolved - Restart       #
+##############################################
+---
+- name: Ark Survival Evolved Launch Script
+  hosts: localhost
+  become: true
+  become_user: arkserver
+  gather_facts: yes
+  vars:
+    date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+  tasks:
+  - name: Send Server Update Message in Discord
+    community.general.discord:
+      webhook_id: Webhook ID
+      webhook_token: Webhook Token
+      content: "Servers Restarting After Reboot"
+
+  - name: Send Server Update Message in Discord
+    community.general.discord:
+      webhook_id: Webhook ID
+      webhook_token: Webhook Token
+      content: "Restarting The Island"
+
+  - name: Restarting The Island After Reboot (Please Be Patient)
+    script: /home/arkserver/linux/ark/arkisland.sh
+
+  - name: Waiting Two Minutes for The Island to Startup
+    wait_for:
+      timeout: 120
+
+  - name: Send Server Update Message in Discord
+    community.general.discord:
+      webhook_id: Webhook ID
+      webhook_token: Webhook Token
+      content: "Restarting Lost Island"
+
+  - name: Restarting Lost Island After Reboot (Please Be Patient)
+    script: /home/arkserver/linux/ark/arklost.sh
+
+  - name: Wait 10 Min For Servers to Return
+    wait_for:
+      timeout: 600
+
+  - name: Send Server Update Message in Discord
+    community.general.discord:
+      webhook_id: Webhook ID
+      webhook_token: Webhook Token
+      content: "Servers Have Been Restored After System Incident - Servers Are Ready To Join"
