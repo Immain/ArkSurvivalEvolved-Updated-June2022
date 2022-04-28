@@ -40,7 +40,7 @@ In order to send Discord Notifications from Ansible, you will need to install th
 ```
 ansible-galaxy collection install community.general
 ```
-***Making a Webhook:**
+**Making a Webhook:**
 Open your Server Settings and head into the Integrations tab:
 Click the "Create Webhook" button to create a new webhook!
 <img src=https://support.discord.com/hc/article_attachments/1500000463501/Screen_Shot_2020-12-15_at_4.41.53_PM.png>
