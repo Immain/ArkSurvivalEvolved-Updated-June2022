@@ -35,6 +35,8 @@ sudo dnf install git -y
 ```
 git clone https://github.com/Immain/ArkSurvivalEvolved-Vanilla-May2022.git
 ```
+# Discord Webhooks
+
 # Generating a Hashed Password For This Script
 ```
 sudo dnf -y install epel-release
