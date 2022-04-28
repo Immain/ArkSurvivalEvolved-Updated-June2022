@@ -36,6 +36,10 @@ sudo dnf install git -y
 git clone https://github.com/Immain/ArkSurvivalEvolved-Vanilla-May2022.git
 ```
 # Discord Webhooks:
+In order to send Discord Notifications from Ansible, you will need to install the community add-on using:
+```
+ansible-galaxy collection install community.general
+```
 
 # Generating a Hashed Password For This Script:
 ```
