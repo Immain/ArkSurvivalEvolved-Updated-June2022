@@ -7,20 +7,92 @@
   become: true
   become_user: arkserver
   gather_facts: yes
+  vars:
+    date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
   tasks:
+
+  - name: Send Warn Message in Discord
+    community.general.discord:
+      webhook_id: discord webhook id
+      webhook_token: webhook token
+      content: "Server will be updating in 1 Hour"
+
+  - name: Warn Players of Impending Doom / Update
+    shell: |
+      ./rcon -a rconip:port -p serverpassword command "broadcast Hello Wonderful Players, This is a reminder that the server will reboot for an update in 1 Hour, This reponse was created automatically and cannot be replied to, thank you for playing on Panda's Hangou$
+  - name: Sleep for 30 min before next warning
+    wait_for:
+      timeout: 1800
+
+  - name: Send 2nd Warn Message in Discord
+    community.general.discord:
+      webhook_id: discord webhook id
+      webhook_token: webhook token
+      content: "Server will be updating in 30 Min"
+
+  - name: Warn Players of second Impending Doom / Update
+    shell: |
+      ./rcon -a rconip:port -p serverpassword command "broadcast Hello Me Again your favorite AI Robot, This is a reminder that the server will reboot for an update in 30 Min, This reponse was created automatically and cannot be replied to, thank you for playing on $
+  - name: Sleep for 30 more min before updating
+    wait_for:
+      timeout: 1800
+
+  - name: Send Server Update Message in Discord
+    community.general.discord:
+      webhook_id: discord webhook id
+      webhook_token: webhook token
+      content: "Beginning Server Update"
+
+  - name: Warn Players of second Impending Doom / Update
+    shell: |
+      ./rcon -a rconip:port -p serverpassword command "broadcast Goodbye....................."
+
+  - name: Sleep for 5 seconds
+    wait_for:
+      timeout: 5
 
   - name: Stopping All Current Servers
     shell: |
       screen -S theisland -X quit
       screen -S lostisland -X quit
     delay: 5
-
-  - name: Updating & Validating Ark Suvival Evolved with SteamCMD (Please Be Patient, This May Take Awhile)
+    
+ - name: Updating & Validating Ark Suvival Evolved with SteamCMD (Please Be Patient, This May Take Awhile)
     command: sh /home/arkserver/linux/steamcmd.sh +login anonymous +force_install_dir ./ark +app_update 376030 validate +quit
     retries: 2
     delay: 10
     register: result
     until: result is not failed
 
+  - name: Send Server Update Message in Discord
+    community.general.discord:
+      webhook_id: discord webhook id
+      webhook_token: webhook token
+      content: "Update Completed, restarting The Island"
+
   - name: Restarting The Island (Please Be Patient)
     script: /home/arkserver/linux/ark/arkisland.sh
+
+  - name: Waiting Two Minutes for The Island to Startup
+    wait_for:
+      timeout: 120
+
+  - name: Send Server Update Message in Discord
+    community.general.discord:
+      webhook_id: discord webhook id
+      webhook_token: webhook token
+      content: "Restarting Lost Island"
+
+  - name: Restarting The Island (Please Be Patient)
+    script: /home/arkserver/linux/ark/arklost.sh
+
+  - name: Wait 10 Min For Servers to Return
+    wait_for:
+      timeout: 600
+
+  - name: Send Server Update Message in Discord
+    community.general.discord:
+      webhook_id: 
+      webhook_token: 
+      content: "Servers Have Been Updated And Are Ready To Join"
+
