@@ -45,18 +45,37 @@ ansible --version
 
 ## On your Linux Desktop:
 ```
-sudo mkdir /home/arkserver/github
+sudo mkdir /home/arkserver/Desktop
 ```
 ```
-cd /home/arkserver/ArkSurvivalEvolved-Vanilla-May2022
+cd /home/arkserver/Desktop/ArkSurvivalEvolved-Vanilla-May2022
 ```
 ```
 sudo dnf install git -y
 ```
-**Make sure you are within the github directory, then run:**
+**Make sure you are within the arkserver directory, then run:**
 ```
 git clone https://github.com/Immain/ArkSurvivalEvolved-Vanilla-May2022.git
 ```
+
+## Generating a Hashed Password For This Script:
+```
+sudo dnf -y install epel-release
+```
+```
+sudo dnf install python3
+```
+```
+python3 -c 'import crypt,getpass;pw=getpass.getpass();print(crypt.crypt(pw) if (pw==getpass.getpass("Confirm: ")) else exit())'
+```
+**It will immediately ask you to type in a password and then confirm it (Like The Example Below)**
+```
+Password: 
+Confirm: 
+$6$/1OFlW9yH1KHHiOm$pn2SfNgbF/rbblahjseab/p1Xb6Z29UZik.BUilZ.TLnp9yvl2HViB3fs8XdVteboeioss7o2A4g1IYxw.TFJ/
+```
+**Once this is completed, take the generated hash and add it to the start script under vars/password.
+
 # Discord Integration
 
 ## Discord Webhooks:
@@ -78,23 +97,6 @@ Name your Webhook: Good for distinguishing multiple webhooks for multiple differ
 
 You now have your own handy URL / pneumatic tube schoomp-er that you can link to more websites to receive messages from. 
 <img src=https://support.discord.com/hc/article_attachments/360101553853/Screen_Shot_2020-12-15_at_4.51.38_PM.png>
-
-## Generating a Hashed Password For This Script:
-```
-sudo dnf -y install epel-release
-```
-```
-sudo dnf install python3
-```
-```
-python3 -c 'import crypt,getpass;pw=getpass.getpass();print(crypt.crypt(pw) if (pw==getpass.getpass("Confirm: ")) else exit())'
-```
-**It will immediately ask you to type in a password and then confirm it (Like The Example Below)**
-```
-Password: 
-Confirm: 
-$6$/1OFlW9yH1KHHiOm$pn2SfNgbF/rbblahjseab/p1Xb6Z29UZik.BUilZ.TLnp9yvl2HViB3fs8XdVteboeioss7o2A4g1IYxw.TFJ/
-```
 
 # Updating Ark Survival Evolved:
 **To Update Ark Survival, Use the script under "Tools" labeled update.yaml**
