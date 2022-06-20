@@ -9,7 +9,7 @@ Ark Survival Evolved Cluster Automation Script - Updated
 This project is ongoing and will continue to be updated over time.
 
 # Requirements: 
-- AlmaLinux 8.5 or higher ( This can be installed on a local machine or using a VMware Service of your choice)
+- AlmaLinux 8.5 / CentOS 8 Stream or higher ( This can be installed on a local machine or using a VMware Service of your choice)
 - You can download the AlmaLinux ISO here: https://mirrors.almalinux.org/isos.html
 - Access to Port Forwarding on your router
 - RAM: 8GB of RAM or Higher
@@ -21,7 +21,29 @@ This project is ongoing and will continue to be updated over time.
 - VMWare, Hyper-V, VirtualBox, VMWare Workstation with AlmaLinux 8.5 or higher Installed
 - Physical Machine with AlmaLinux 8.5 or higher (Recommended) 
 
-# On your Linux Desktop:
+# Installation
+
+## Install Ansible
+```
+sudo dnf update -y
+```
+```
+sudo dnf makecache
+```
+```
+sudo dnf install epel-release -y
+```
+```
+sudo dnf makecache
+```
+```
+sudo dnf install ansible -y
+```
+```
+ansible --version
+```
+
+## On your Linux Desktop:
 ```
 sudo mkdir /home/arkserver/github
 ```
@@ -35,7 +57,9 @@ sudo dnf install git -y
 ```
 git clone https://github.com/Immain/ArkSurvivalEvolved-Vanilla-May2022.git
 ```
-# Discord Webhooks:
+# Discord Integration
+
+## Discord Webhooks:
 In order to send Discord Notifications from Ansible, you will need to install the community add-on using:
 ```
 ansible-galaxy collection install community.general
@@ -55,7 +79,7 @@ Name your Webhook: Good for distinguishing multiple webhooks for multiple differ
 You now have your own handy URL / pneumatic tube schoomp-er that you can link to more websites to receive messages from. 
 <img src=https://support.discord.com/hc/article_attachments/360101553853/Screen_Shot_2020-12-15_at_4.51.38_PM.png>
 
-# Generating a Hashed Password For This Script:
+## Generating a Hashed Password For This Script:
 ```
 sudo dnf -y install epel-release
 ```
@@ -72,25 +96,6 @@ Confirm:
 $6$/1OFlW9yH1KHHiOm$pn2SfNgbF/rbblahjseab/p1Xb6Z29UZik.BUilZ.TLnp9yvl2HViB3fs8XdVteboeioss7o2A4g1IYxw.TFJ/
 ```
 
-# Installing Ansible on AlmaLinux 8.5 or higher:
-```
-sudo dnf update -y
-```
-```
-sudo dnf makecache
-```
-```
-sudo dnf install epel-release -y
-```
-```
-sudo dnf makecache
-```
-```
-sudo dnf install ansible -y
-```
-```
-ansible --version
-```
 # Updating Ark Survival Evolved:
 **To Update Ark Survival, Use the script under "Tools" labeled update.yaml**
 ```
