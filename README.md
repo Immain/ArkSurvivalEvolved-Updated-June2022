@@ -23,7 +23,7 @@ This project is ongoing and will continue to be updated over time.
 
 # Installation
 
-## Install Ansible
+## 1. Install Ansible
 ```
 sudo dnf update -y
 ```
@@ -43,7 +43,7 @@ sudo dnf install ansible -y
 ansible --version
 ```
 
-## On your Linux Desktop:
+## 2. On your Linux Desktop:
 ```
 sudo mkdir /home/arkserver/Desktop
 ```
@@ -58,7 +58,7 @@ sudo dnf install git -y
 git clone https://github.com/Immain/ArkSurvivalEvolved-Vanilla-May2022.git
 ```
 
-## Generating a Hashed Password For This Script:
+## 3. Generating a Hashed Password For This Script:
 ```
 sudo dnf -y install epel-release
 ```
@@ -120,7 +120,18 @@ ansible-playbook update.yaml
  - **7777/udp Game client port**
 
 # Map-Names:
-> The Island: TheIsland
+The Island:	TheIsland
+The Center:	TheCenter
+Scorched Earth:	ScorchedEarth_P
+Ragnarok:	Ragnarok
+Aberration:	Aberration_P
+Extinction:	Extinction
+Valguero:	Valguero_P
+Genesis: Part 1	Genesis
+Crystal Isles	CrystalIsles
+Genesis: Part 2	Gen2
+Lost Island:	LostIsland
+Fjordur: Fjordur
 
 # Update Log:
 - 04/28/22: **Added Discord Notifications & Fixed some errors with the script**
