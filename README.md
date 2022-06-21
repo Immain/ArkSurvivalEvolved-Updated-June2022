@@ -127,9 +127,9 @@ ansible-playbook update.yaml
 - Aberration:	Aberration_P
 - Extinction:	Extinction
 - Valguero:	Valguero_P
-- Genesis: Part 1	Genesis
+- Genesis Part-1:	Genesis
 - Crystal Isles	CrystalIsles
-- Genesis: Part 2	Gen2
+- Genesis Part-2:	Gen2
 - Lost Island:	LostIsland
 - Fjordur: Fjordur
 
