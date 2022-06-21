@@ -2,7 +2,7 @@
 <img src=https://almalinux.org/static/images/logo.svg>
 <img src=https://playpc.io/wp-content/uploads/2020/08/ark-sruvival-evolved-wallpaper.jpg>
 
-# Automation Script for Ark Survival Evolved - Vanilla Linux Script for AlmaLinux
+# Automation Script for Ark Survival Evolved Servers - Vanilla Linux Script
 
 Ark Survival Evolved Cluster Automation Script - **Updated June 20, 2022**
 
