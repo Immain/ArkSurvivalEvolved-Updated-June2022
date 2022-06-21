@@ -76,6 +76,16 @@ $6$/1OFlW9yH1KHHiOm$pn2SfNgbF/rbblahjseab/p1Xb6Z29UZik.BUilZ.TLnp9yvl2HViB3fs8Xd
 ```
 **Once this is completed, take the generated hash and add it to the start script under vars/password.**
 
+## How to Cluster Your Server
+To cluster your server, add the following by using the command:
+```
+sudo nano /home/arkserver/linux/ark/theisland.sh
+```
+```
+screen -dmS theisland ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?Multihome=0.0.0.0?SessionName=$?MaxPlayers=$?QueryPort=$?Port=$?ServerAdminPassword=$ -NoTransferFromFiltering clusterid=cluster00000 -server -log
+```
+Cluster ID's can be any number, for each server, you will need to add the exact same cluster id to the bash file in order to cluster your servers.
+
 # Discord Integration
 
 ## Discord Webhooks:
