@@ -84,7 +84,7 @@ sudo nano /home/arkserver/linux/ark/theisland.sh
 ```
 screen -dmS theisland ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?Multihome=0.0.0.0?SessionName=$?MaxPlayers=$?QueryPort=$?Port=$?ServerAdminPassword=$ -NoTransferFromFiltering clusterid=cluster00000 -server -log
 ```
-Cluster ID's can be any number, for each server, you will need to add the exact same cluster id to the bash file in order to cluster your servers.
+Cluster ID's can be any number, for each server, you will need to add the exact same cluster id to the bash file in order to cluster your servers correctly.
 
 # Discord Integration
 
