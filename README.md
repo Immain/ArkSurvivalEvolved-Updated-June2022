@@ -74,7 +74,14 @@ Password:
 Confirm: 
 $6$/1OFlW9yH1KHHiOm$pn2SfNgbF/rbblahjseab/p1Xb6Z29UZik.BUilZ.TLnp9yvl2HViB3fs8XdVteboeioss7o2A4g1IYxw.TFJ/
 ```
-**Once this is completed, take the generated hash and add it to the start script under vars/password.**
+**Once this is completed, take the generated hash and add it to the launch.yaml script**
+```
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    users:
+    - username: arkserver
+      password: hashed-password <-- Put Here
+```
 
 ## 4. How to Cluster Your Server
 To cluster your server, add the following by using the command:
