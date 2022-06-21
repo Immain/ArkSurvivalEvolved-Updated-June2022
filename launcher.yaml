@@ -14,7 +14,7 @@
     ansible_python_interpreter: /usr/bin/python3
     users:
     - username: arkserver
-      password: hashed-password
+      password: $6$9j6dnob/Pw6fgRxt$Yz5gpiC5J7O.juiAJ0yQ2gBuTNsrpgD9P9sOQ2t5/bEoe3sOJkpGqKcTzJA7r792Yhc0ECuBrE4LJd/yVNYPp/
   tasks:
 
   - name: Get IPv4 address
@@ -90,8 +90,8 @@
       port: "{{ item }}"
       permanent: true
     loop:
-      - '27015/udp'
-      - '7777/udp'
+      - '27042/udp'
+      - '7742/udp'
 
 ##############################################
 #    Ark Survival Evolved - Dependencies     #
@@ -190,6 +190,15 @@
     shell: |
       screen -S theisland -X quit
     delay: 25
+
+##############################################
+#        Ark Survival Evolved - Delay        #
+##############################################
+
+  - name: Sleep for 60 seconds before continuing
+    wait_for:
+      timeout: 60
+    delegate_to: localhost
 
 ##############################################
 #   Ark Survival Evolved - Official Start    #
