@@ -120,18 +120,18 @@ ansible-playbook update.yaml
  - **7777/udp Game client port**
 
 # Map-Names:
-> The Island:	TheIsland
-> The Center:	TheCenter
-> Scorched Earth:	ScorchedEarth_P
-> Ragnarok:	Ragnarok
-> Aberration:	Aberration_P
-> Extinction:	Extinction
-> Valguero:	Valguero_P
-> Genesis: Part 1	Genesis
-> Crystal Isles	CrystalIsles
-> Genesis: Part 2	Gen2
-> Lost Island:	LostIsland
-> Fjordur: Fjordur
+- The Island:	TheIsland
+- The Center:	TheCenter
+- Scorched Earth:	ScorchedEarth_P
+- Ragnarok:	Ragnarok
+- Aberration:	Aberration_P
+- Extinction:	Extinction
+- Valguero:	Valguero_P
+- Genesis: Part 1	Genesis
+- Crystal Isles	CrystalIsles
+- Genesis: Part 2	Gen2
+- Lost Island:	LostIsland
+- Fjordur: Fjordur
 
 # Update Log:
 - 04/28/22: **Added Discord Notifications & Fixed some errors with the script**
