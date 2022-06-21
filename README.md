@@ -16,10 +16,7 @@ This project is ongoing and will continue to be updated over time.
 - SSD: 100GB or Higher
 - Processor: Intel Core i5-8400 or Higher / AMD Ryzen 5 1600 or Higher
 - Does NOT require GPU usage
-
-# Machine Suggestions:
-- VMWare, Hyper-V, VirtualBox, VMWare Workstation with AlmaLinux 8.5 or higher Installed
-- Physical Machine with AlmaLinux 8.5 or higher (Recommended) 
+- Ark Surival maps need around 6gb to start up, depending on the map, ASE can idle between 6gb-8gb
 
 # Installation
 
