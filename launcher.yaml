@@ -92,7 +92,12 @@
     loop:
       - '27015/udp'
       - '7777/udp'
-
+      
+  - name: Reload Firewall Rules
+    systemd:
+      name: firewalld
+      state: reloaded
+      
 ##############################################
 #    Ark Survival Evolved - Dependencies     #
 ##############################################
