@@ -8,6 +8,7 @@
 - name: Ark Survival Evolved Launch Script
   hosts: localhost
   become: true
+  become_user: root
   gather_facts: yes
   vars:
     ansible_python_interpreter: /usr/bin/python3
@@ -41,11 +42,13 @@
       msg: "Systems public IP Address is {{ public_ip.json.ip }} , you will need this for steam"
 
   - name: Update Linux with Latest Packages
+    become: true
     dnf:
       name: '*'
       state: latest
 
   - name: Create User Arkserver with Home Directory
+    become: true
     user: 
       name: "{{ item.username }}"
       shell: /bin/bash
@@ -80,14 +83,15 @@
 ##############################################
 
   - name: Opening Firewall Ports for Ark Survival
+    become: true
     firewalld:
       state: enabled
       zone: public
       port: "{{ item }}"
       permanent: true
     loop:
-      - '27042/udp'
-      - '7742/udp'
+      - '27015/udp'
+      - '7777/udp'
 
 ##############################################
 #    Ark Survival Evolved - Dependencies     #
@@ -164,11 +168,10 @@
 #      Ark Survival Evolved - Game Delay     #
 ##############################################
 
-  - name: Starting The Island as Sudo to Gen Files (Please Be Patient)
-    command: sh /home/arkserver/linux/ark/theisland.sh
-    become: yes
-    become_user: root
-    delegate_to: localhost
+  - name: start server
+    command: ./theisland.sh
+    args:
+      chdir: /home/arkserver/linux/ark/
 
 ##############################################
 #      Ark Survival Evolved - Wait For       #
@@ -187,14 +190,14 @@
     shell: |
       screen -S theisland -X quit
     delay: 25
-    delegate_to: localhost
 
 ##############################################
 #   Ark Survival Evolved - Official Start    #
 ##############################################
 
-  - name: Starting The Island as Sudo to Gen Files (Please Be Patient)
-    command: sh /home/arkserver/linux/ark/theisland.sh
-    become: yes
+  - name: start server
+    become: true
     become_user: arkserver
-    delegate_to: localhost
+    command: ./theisland.sh
+    args:
+      chdir: /home/arkserver/linux/ark/
