@@ -74,7 +74,7 @@ Password:
 Confirm: 
 $6$/1OFlW9yH1KHHiOm$pn2SfNgbF/rbblahjseab/p1Xb6Z29UZik.BUilZ.TLnp9yvl2HViB3fs8XdVteboeioss7o2A4g1IYxw.TFJ/
 ```
-**Once this is completed, take the generated hash and add it to the launch.yaml script**
+**Once this is completed, take the generated hash and add it to the launcher.yaml script**
 ```
   vars:
     ansible_python_interpreter: /usr/bin/python3
