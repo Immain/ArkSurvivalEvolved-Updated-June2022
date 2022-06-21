@@ -90,8 +90,8 @@
       port: "{{ item }}"
       permanent: true
     loop:
-      - '27042/udp'
-      - '7742/udp'
+      - '27015/udp'
+      - '7777/udp'
 
 ##############################################
 #    Ark Survival Evolved - Dependencies     #
