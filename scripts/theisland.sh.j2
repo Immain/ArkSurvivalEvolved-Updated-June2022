@@ -2,6 +2,6 @@
 SessionName="NomadicEternals-TheIsland"
 port="7777"
 queryport="27015"
-ServerAdminPassword="Nomadic_Eternals_ChangeMe"
+ServerAdminPassword="ChangeMe"
 maxplayers="50"
-screen -dmS theisland ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?Multihome=0.0.0.0?SessionName=$?MaxPlayers=$?QueryPort=$?Port=$?ServerAdminPassword=$ -server -log
+screen -dmS theisland ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?Multihome=0.0.0.0?SessionName=NomadicEternals-TheIsland?MaxPlayers=50?QueryPort=27015?Port=7777?ServerAdminPassword=ChangeMe -NoTransferFromFiltering ClusterId=Cluster00000 -server -log
