@@ -135,7 +135,7 @@ sudo cp /home/arkserver/ArkSurvivalEvolved-Updated-June2022/tools/update.yaml /h
 ansible-playbook update.yaml
 ```
 # Ports:
-> The Island
+> Main Port and Query Numbers for Steam
  - **27015/udp Query**
  - **7777/udp Game client port**
 
