@@ -4,7 +4,7 @@
 
 # Automation Script for Ark Survival Evolved - Vanilla Linux Script for AlmaLinux
 
-Ark Survival Evolved Cluster Automation Script - Updated
+Ark Survival Evolved Cluster Automation Script - **Updated June 20, 2022
 
 This project is ongoing and will continue to be updated over time.
 
