@@ -86,6 +86,16 @@ screen -dmS theisland ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?lis
 ```
 Cluster ID's can be any number, for each server, you will need to add the exact same cluster id to the bash file in order to cluster your servers correctly.
 
+## How to Run The Ansible Script
+Use the following to initiate the Ark Server Ansible Script
+```
+cd /home/arkserver/Desktop/ArkSurvivalEvolved-Updated-June2022
+```
+```
+ansible-playbook launcher.yaml --ask-become-pass
+```
+Type the Sudo password you created, the script should run on it's own after that.
+
 # Discord Integration
 
 ## Discord Webhooks:
