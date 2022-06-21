@@ -1,4 +1,4 @@
-# Ark-Survival-Evolved-Vanilla-May2022
+# ArkSurvivalEvolved-Updated-June2022
 <img src=https://almalinux.org/static/images/logo.svg>
 <img src=https://playpc.io/wp-content/uploads/2020/08/ark-sruvival-evolved-wallpaper.jpg>
 
@@ -48,14 +48,14 @@ ansible --version
 sudo mkdir /home/arkserver/Desktop
 ```
 ```
-cd /home/arkserver/Desktop/ArkSurvivalEvolved-Vanilla-May2022
+cd /home/arkserver/Desktop/ArkSurvivalEvolved-Updated-June2022
 ```
 ```
 sudo dnf install git -y
 ```
 **Make sure you are within the arkserver directory, then run:**
 ```
-git clone https://github.com/Immain/ArkSurvivalEvolved-Vanilla-May2022.git
+git clone https://github.com/Immain/ArkSurvivalEvolved-Updated-June2022.git
 ```
 
 ## 3. Generating a Hashed Password For This Script:
@@ -111,14 +111,14 @@ You now have your own handy URL / pneumatic tube schoomp-er that you can link to
 # Updating Ark Survival Evolved:
 **To Update Ark Survival, Use the script under "Tools" labeled update.yaml**
 ```
-cd /home/arkserver/ArkSurvivalEvolved-Vanilla-May2022/tools
+cd /home/arkserver/ArkSurvivalEvolved-Updated-June2022/tools
 ```
 ```
 ansible-playbook update.yaml
 ```
 **You can also copy the update script into your /home/arkserver/linux/ark/ folder and execute the playbook**
 ```
-sudo cp /home/arkserver/ArkSurvivalEvolved-Vanilla-May2022/tools/update.yaml /home/arkserver/linux/ark/
+sudo cp /home/arkserver/ArkSurvivalEvolved-Updated-June2022/tools/update.yaml /home/arkserver/linux/ark/
 ```
 **Then execute the script with**
 ```
