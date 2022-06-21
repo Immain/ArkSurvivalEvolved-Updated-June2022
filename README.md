@@ -161,6 +161,7 @@ ansible-playbook update.yaml
 - Fjordur: Fjordur
 
 # Update Log:
+- 06/21/22: **Added Firewalld Reload**
 - 06/20/22: **Updated Script to current ansible changes, fixed typos and removed modules that no longer worked.**
 - 04/28/22: **Added Discord Notifications & Fixed some errors with the script**
 - 01/05/22: **Changed order of tasks due to INI not moving over correctly**
