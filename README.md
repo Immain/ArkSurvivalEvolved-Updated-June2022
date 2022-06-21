@@ -4,7 +4,7 @@
 
 # Automation Script for Ark Survival Evolved - Vanilla Linux Script for AlmaLinux
 
-Ark Survival Evolved Cluster Automation Script - **Updated June 20, 2022
+Ark Survival Evolved Cluster Automation Script - **Updated June 20, 2022**
 
 This project is ongoing and will continue to be updated over time.
 
@@ -74,7 +74,7 @@ Password:
 Confirm: 
 $6$/1OFlW9yH1KHHiOm$pn2SfNgbF/rbblahjseab/p1Xb6Z29UZik.BUilZ.TLnp9yvl2HViB3fs8XdVteboeioss7o2A4g1IYxw.TFJ/
 ```
-**Once this is completed, take the generated hash and add it to the start script under vars/password.
+**Once this is completed, take the generated hash and add it to the start script under vars/password.**
 
 # Discord Integration
 
