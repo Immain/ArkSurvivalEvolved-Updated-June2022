@@ -1,23 +1,20 @@
 ##############################################
 #    Ark Survival Evolved - Vanilla Script   #
 ##############################################
+# Script Created by Panda Data Systems
+# Updated June 20th, 2022
+# Support: help@pandadatasystems.com
 ---
 - name: Ark Survival Evolved Launch Script
   hosts: localhost
   become: true
   gather_facts: yes
   vars:
+    ansible_python_interpreter: /usr/bin/python3
     users:
-    - username: {{ ark_user }}
-      password: {{ ark_password }}
+    - username: arkserver
+      password: hashed-password
   tasks:
-
-  - name: Check OS Release is AlmaLinux
-    assert:
-      that:
-      - ansible_facts['os_family'] == "RedHat"
-      - ansible_facts['distribution'] == "AlmaLinux"
-      fail_msg: Host {{ ansible_hostname }} does not meet minimal reps
 
   - name: Get IPv4 address
     debug:
@@ -43,7 +40,7 @@
     debug:
       msg: "Systems public IP Address is {{ public_ip.json.ip }} , you will need this for steam"
 
-  - name: Update AlmaLinux with Latest Packages
+  - name: Update Linux with Latest Packages
     dnf:
       name: '*'
       state: latest
@@ -82,13 +79,15 @@
 #    Ark Survival Evolved - Firewall Ports   #
 ##############################################
 
-  - name: Opening Firewall Ports for The Island
+  - name: Opening Firewall Ports for Ark Survival
     firewalld:
-      zone: public
-      port: 27015/udp
-      port: 7777/udp
-      permanent: true
       state: enabled
+      zone: public
+      port: "{{ item }}"
+      permanent: true
+    loop:
+      - '27042/udp'
+      - '7742/udp'
 
 ##############################################
 #    Ark Survival Evolved - Dependencies     #
@@ -165,16 +164,19 @@
 #      Ark Survival Evolved - Game Delay     #
 ##############################################
 
-  - name: Starting The Island To Generate Files(Please Be Patient)
-    script: /home/arkserver/linux/ark/theisland.sh
+  - name: Starting The Island as Sudo to Gen Files (Please Be Patient)
+    command: sh /home/arkserver/linux/ark/theisland.sh
+    become: yes
+    become_user: root
+    delegate_to: localhost
 
 ##############################################
 #      Ark Survival Evolved - Wait For       #
 ##############################################
 
-  - name: Sleep for 500 seconds before continuing
+  - name: Sleep for 600 seconds before continuing
     wait_for:
-      timeout: 500
+      timeout: 600
     delegate_to: localhost
 
 ##############################################
@@ -185,27 +187,14 @@
     shell: |
       screen -S theisland -X quit
     delay: 25
-
-##############################################
-#      Ark Survival Evolved - Game INI       #
-##############################################
-
-  - name: Creating Stock Game.ini for Ark Survival Evolved
-    become: true
-    template: 
-      src:  gameini/Game.ini.j2
-      dest: /home/arkserver/linux/ark/ShooterGame/Saved/Config/LinuxServer/Game.ini
-      remote_src: yes
-
-  - name: Creating Stock GameUserSettings.ini for Ark Survival Evolved
-    become: true
-    template:
-      src: gameini/GameUserSettings.ini.j2
-      dest: /home/arkserver/linux/ark/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
+    delegate_to: localhost
 
 ##############################################
 #   Ark Survival Evolved - Official Start    #
 ##############################################
 
-  - name: Starting The Island (Please Be Patient)
-    script: /home/arkserver/linux/ark/theisland.sh
+  - name: Starting The Island as Sudo to Gen Files (Please Be Patient)
+    command: sh /home/arkserver/linux/ark/theisland.sh
+    become: yes
+    become_user: arkserver
+    delegate_to: localhost
