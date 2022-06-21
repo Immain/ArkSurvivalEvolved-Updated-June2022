@@ -14,7 +14,7 @@
     ansible_python_interpreter: /usr/bin/python3
     users:
     - username: arkserver
-      password: $6$9j6dnob/Pw6fgRxt$Yz5gpiC5J7O.juiAJ0yQ2gBuTNsrpgD9P9sOQ2t5/bEoe3sOJkpGqKcTzJA7r792Yhc0ECuBrE4LJd/yVNYPp/
+      password: hashed-password
   tasks:
 
   - name: Get IPv4 address
